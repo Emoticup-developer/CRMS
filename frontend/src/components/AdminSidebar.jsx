@@ -54,6 +54,7 @@ import { PiMapPinAreaFill } from "react-icons/pi";
 import { GiFactory } from "react-icons/gi";
 import { TbArrowBigLeft, TbDatabaseEdit } from "react-icons/tb";
 import { FiRefreshCw } from "react-icons/fi";
+import { LuTickets } from "react-icons/lu";
 
 const HEADER_HEIGHT = 148;
 
@@ -103,6 +104,8 @@ const getIcon = (iconName) => {
       return <PiCubeThin className="w-5 h-5" />;
     case "MdFormatListNumbered":
       return <MdFormatListNumbered className="w-5 h-5" />;
+    case "LuTickets":
+      return <LuTickets className="w-5 h-5" />;
     default:
       return null;
   }
