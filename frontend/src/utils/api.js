@@ -4,11 +4,6 @@ import Cookies from "js-cookie";
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 const appEnv = import.meta.env.VITE_APP_ENV || "DEVELOPMENT";
 
-console.log(
-  `%c🚀 API ENV: ${appEnv} | BASE URL: ${apiBaseUrl}`,
-  "color: green; font-weight: bold;",
-);
-
 const api = axios.create({
   baseURL: apiBaseUrl,
 });
@@ -25,12 +20,6 @@ api.interceptors.request.use(
       config.headers.Authorization = `Bearer ${token}`;
     }
 
-    // 🔥 Log each request with environment
-    console.log(
-      `%c[${appEnv}] API Request → ${config.method?.toUpperCase()} ${config.baseURL}${config.url}`,
-      "color: blue;",
-    );
-
     return config;
   },
   (err) => Promise.reject(err),
@@ -42,22 +31,11 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
   (res) => {
-    // 🔥 Success log
-    console.log(
-      `%c[${appEnv}] API Response ← ${res.status} ${res.config.url}`,
-      "color: green;",
-    );
-
     return res;
   },
   (err) => {
     if (err.response) {
       const status = err.response.status;
-
-      console.error(
-        `%c[${appEnv}] API Error ← ${status} ${err.config?.url}`,
-        "color: red;",
-      );
 
       // ❌ Do NOT redirect during login
       if (status === 401 && !err.config.url.includes("/")) {
