@@ -7,7 +7,7 @@ const AdminDashboard = () => {
         <AdminSidebar />
       </div>
 
-      <main className="flex-1 ml-0 lg:ml-[325px] mt-[148px] p-3 overflow-y-auto bg-white backdrop-blur-sm shadow-inner [&::-webkit-scrollbar]:hidden scrollbar-none"></main>
+      <main className="flex-1 ml-0 lg:ml-[325px] mt-[6px] p-3 overflow-y-auto bg-white backdrop-blur-sm shadow-inner [&::-webkit-scrollbar]:hidden scrollbar-none"></main>
     </div>
   );
 };

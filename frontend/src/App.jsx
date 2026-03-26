@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import AdminDashboard from "./pages/admin/AdminDashboard";
-import VendorOnboarding from "./pages/vendor/VendorOnboarding";
+import CreateTicket from "./pages/customer/ticketing/CreateTicket";
 
 function App() {
   return (
@@ -12,13 +12,8 @@ function App() {
       <Route element={<ProtectedRoute />}>
         {/* Admin login */}
         <Route path="/admin/home" element={<AdminDashboard />} />
-
-        {/* Vendor login */}
-        <Route
-          path="/partner/partner-onboarding"
-          element={<VendorOnboarding />}
-        />
-      </Route>
+  <Route path="/admin/ticket/create" element={<CreateTicket />} />
+</Route>
     </Routes>
   );
 }
